@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfApp1.Windows.HistoryProductsSales"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Windows"
+        mc:Ignorable="d"
+        Title="Мастер пол - история реализации продукции" 
+        MinHeight="400" MinWidth="600"
+        Height="450" Width="800"
+        FontFamily="Segoe UI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <!-- <RowDefinition Height="*"/> -->
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*" MaxHeight="40"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка приложения-->
+        <DockPanel Grid.Row="0"
+           Background="{DynamicResource AccentColor}">
+            <Image Source="../Resources/Мастер пол.png"
+           HorizontalAlignment="Left"
+           Margin="10"/>
+            <TextBlock FontSize="28" 
+               FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center">История реализации продукции</TextBlock>
+        </DockPanel>
+
+        <!-- Список реализации продукции -->
+        <ListView x:Name="ListHistoryProductsSales"
+                  Grid.Row="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="10 5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1"
+                            BorderBrush="{DynamicResource AccentColor}"
+                            Background="{DynamicResource PrimaryBgColor}">
+                        <Grid Margin="10"
+                              HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       FontSize="18"
+                                       Text="{Binding TitleProduct}"
+                                       TextWrapping="Wrap"/>
+                            <TextBlock Grid.Column="1"
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding CountProduct, StringFormat='{}{0} шт.'}"
+                                       TextWrapping="Wrap"/>
+                            <TextBlock Grid.Column="2"
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding DateString}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Button x:Name="BackBtn" 
+                Grid.Row="3"
+                HorizontalAlignment="Right"
+                Width="80"
+                Margin="10 0"
+                Click="BackBtn_Click"
+                Background="{DynamicResource SecondaryBgColor}">Назад</Button>
+    </Grid>
+</Window>

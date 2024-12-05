@@ -1,0 +1,108 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Мастер пол - Список партнеров" 
+        MinHeight="400" MinWidth="600"
+        Height="450" Width="800"
+        FontFamily="Segoe UI">
+    <Grid Background="{DynamicResource PrimaryBgColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Шапка приложения-->
+        <DockPanel Grid.Row="0"
+                   Background="{DynamicResource AccentColor}">
+            <Image Source="Resources/Мастер пол.png"
+                   HorizontalAlignment="Left"
+                   Margin="10"/>
+            <TextBlock FontSize="28" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">Список партнеров</TextBlock>
+            <Button x:Name="EditPartnerBtn"
+                    DockPanel.Dock="Right"
+                    Width="200"
+                    HorizontalAlignment="Right"
+                    Margin="15 0"
+                    Visibility="Collapsed"
+                    Click="EditPartnerBtn_Click">
+                Редактировать партнера
+            </Button>
+            <Button x:Name="AddPartnerBtn" 
+                    DockPanel.Dock="Right"
+                    Width="170"
+                    HorizontalAlignment="Right"
+                    Margin="15 0"
+                    Click="AddPartnerBtn_Click">
+                Добавить партнера
+            </Button>
+        </DockPanel>
+
+        <!-- Список партнеров-->
+        <ListView x:Name="ListViewPartners"
+                  SelectionChanged="ListViewPartners_SelectionChanged"
+                  Grid.Row="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  MouseDoubleClick="ListViewPartners_MouseDoubleClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="10 5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1"
+                            BorderBrush="{DynamicResource AccentColor}"
+                            Background="{DynamicResource PrimaryBgColor}">
+                        <Grid Margin="10"
+                              HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0"
+                                        VerticalAlignment="Stretch">
+                                <TextBlock FontSize="18"
+                                           Text="{Binding TypeAndTitle}"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Director}"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Phone}"/>
+                                <TextBlock Text="{Binding Rating, StringFormat='Рейтинг: {0}'}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" 
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding SalePartner}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="BackBtn" 
+                Grid.Row="3"
+                HorizontalAlignment="Right"
+                Width="80"
+                Margin="10 0"
+                Click="BackBtn_Click">Выход</Button>
+
+        <Button x:Name="HistoryProductsSaleBtn" 
+                Grid.Row="3"
+                HorizontalAlignment="Left"
+                Width="260"
+                Margin="10 0"
+                Visibility="Collapsed"
+                Click="HistoryProductsSaleBtn_Click">История реализации продукции</Button>
+
+    </Grid>
+</Window>

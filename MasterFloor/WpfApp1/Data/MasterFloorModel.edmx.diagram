@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4097e92f55524af9a4d46f4711c43e15" Name="Diagram1">
+        <EntityTypeShape EntityType="MasterFloorModel.MaterialType" Width="1.5" PointX="7" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterFloorModel.PartnerProducts" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterFloorModel.Partners" Width="1.5" PointX="3.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterFloorModel.Products" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterFloorModel.ProductType" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterFloorModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MasterFloorModel.FK__PartnerPr__Partn__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterFloorModel.FK__PartnerPr__Produ__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterFloorModel.FK__Products__Produc__3B75D760" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
